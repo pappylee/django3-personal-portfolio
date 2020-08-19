@@ -1,0 +1,14 @@
+
+{% extends 'portfolio/base.html' %}
+
+
+{% block content %}  
+
+    <div class="container jumbotron">
+        <h4>{{blog.title}}</h4>
+        <p>{{blog.description|striptags}}</p>
+        <h4>{{blog.date}}</h4>        
+    </div>  
+
+{% endblock content%}
+
