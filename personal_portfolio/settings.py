@@ -125,3 +125,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # the above line of code tells django where to put media files. e.g images that we upload.
+
+
+
+################## ADDITIONAL CODES TO REFERENCE local_settings.py ##########################
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('Looks like there is no local file, you must be on production')

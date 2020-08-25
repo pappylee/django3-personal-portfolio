@@ -13,3 +13,10 @@ def project_detail(request, project_id):
     context = {'project': project}
     return render(request, 'portfolio/project-detail.html', context)
 
+def wendy_home(request):
+    return render(request, 'portfolio/wendy-home.html', {})
+
+def about(request):
+    return render(request, 'portfolio/about.html', {})
+    
+

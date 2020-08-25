@@ -1,0 +1,60 @@
+
+/*This is the custom css for jumbotron in the downloaded template*/
+body {
+    padding-top: 3.5rem;
+  }
+  
+
+/*My own custom CSS from another source*/  
+
+.fade-in {
+    animation: fadeIn ease 5s infinite;
+    -webkit-animation: fadeIn ease 5s infinite;
+    -moz-animation: fadeIn ease 5s infinite;
+    -o-animation: fadeIn ease 5s infinite;
+    -ms-animation: fadeIn ease 5s infinite;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+      color: red;
+    }
+    100% {
+      opacity:1;      
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
