@@ -20,7 +20,22 @@
         background: url("{% static 'blog/images/back_image.jpg' %}");
         background-position: center;
         background-size: cover;
+        height: 100vh;
+        width: 100vw;
     }
+
+    .full-page{
+      margin: 0;
+      padding: 0;
+      border: 0;
+      position: absolute;
+      width: 90vw;
+      height: 90vh;
+      top: 5vh;
+      left: 5vw;
+    }
+    
+    
 </style> 
 
 <link rel="stylesheet" href="{% static 'blog/css/mystyle.css' %}">
@@ -30,7 +45,7 @@
 <body class="bgimg loader"> 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
-    <a class="navbar-brand" href="{% url 'portfolio:wendy-home' %}">Wendy Nig Ltd</a>
+    <a class="navbar-brand" href="{% url 'portfolio:home' %}">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,15 +53,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'portfolio:home' %}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'portfolio:about' %}">About</a>
+          <a class="nav-link" href="{% url 'portfolio:about' %}">About<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'blog:all_blogs' %}">Blogs</a>
-        </li>           
-      </ul>      
+        </li>        
+      </ul> 
+      <ul class="navbar-nav mr-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'portfolio:wendy-home' %}">Wendy Nig Ltd</a>
+        </li>  
+      </ul>     
     </div>
   </nav>
 

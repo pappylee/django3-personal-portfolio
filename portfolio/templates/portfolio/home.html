@@ -2,10 +2,12 @@
 
 {% block content %}
 
+<div class="container full-page">
+
     <div class="jumbotron text-center">        
         {% load static %}
 
-       <!-- <div class="jumbotron"> -->
+       <!--<div class="jumbotron">-->
             <h3 class="alert alert-success">Joel's Portfolio</h3>
             <p>Joel is an experienced software developer. He is the CEO of Wendy Nigeria Limited, an 
                 ICT company with HQ in Ibadan and branches in 7 states of Nigeria.
@@ -13,42 +15,42 @@
        <!-- </div> -->
                     
 
-        <img src="{% static 'portfolio/images/profile_pic.jpg' %}" alt="Author's Photograph" height="900" width="700">
+        <img src="{% static 'portfolio/images/profile_pic.jpg' %}" alt="Author's Photograph" height="300" width="300">
         <br>
         <br>
         <a href="{% static 'portfolio/author_resume.pdf' %}" target="blank"><h3 class="btn btn-warning">Joel's Resume</h3></a>          
               
     </div>
     
-    <div class="container">  
+    <!--<div class="container">-->
 
         <div class="container text-center"><h5 class="alert alert-success">Here is a list of my recently completed projects</h5></div>
 
         <div class="row">
        
             {% for project in projects %}
-                <a href="{% url 'portfolio:project_detail' project.id %}">
                 <div class="col-md-4">
                     <div class="card mb-2">
-                        <img class="card-img-top" src="{{project.image.url}}" alt="project's image" height="150" width="150">
+                        <img class="card-img-top" src="{{project.image.url}}" alt="project's image" height="150" width="200">
                         <div class="card-body">
-                            <h5 class="card-title">{{project.title|truncatechars:10}}</h5>
-                            <p class="card-text">{{project.description|truncatechars:20}}</p>
+                            <h5 class="card-title">{{ project.title|truncatechars:10 }}</h5>
+                            <p class="card-text">{{ project.description|truncatechars:20 }}</p>
+                            <a href="{% url 'portfolio:project_detail' project.id %}"
+                            class="btn btn-primary">
+                                Read More   
+                            </a>
+
+                            {% if project.url%}
+                                <a class="btn btn-primary btn-default" href="{{project.url}}" target="blank">Link</a>
+                            {% endif%}
+
+
                         </div>
-                        
-                        {% if project.url %}                              
-                            <a class="btn btn-primary btn-default" href="{{project.url}}" target="blank">Link</a>
-                            <hr>
-                        {% endif %}
-                    </a>                    
                     </div>
-                </div>           
-                                        
-                <br>               
-                
+                </div>
             {% endfor %}                
         </div>
-
     </div>
+    
 {% endblock content %}
     
