@@ -1,56 +1,94 @@
+
 {% extends "portfolio/base.html" %}
 
 {% block content %}
 
-<div class="container full-page">
-
-    <div class="jumbotron text-center">        
-        {% load static %}
-
-       <!--<div class="jumbotron">-->
-            <h3 class="alert alert-success">Joel's Portfolio</h3>
-            <p>Joel is an experienced software developer. He is the CEO of Wendy Nigeria Limited, an 
-                ICT company with HQ in Ibadan and branches in 7 states of Nigeria.
-            </p>
-       <!-- </div> -->
-                    
-
-        <img src="{% static 'portfolio/images/profile_pic.jpg' %}" alt="Author's Photograph" height="300" width="300">
-        <br>
-        <br>
-        <a href="{% static 'portfolio/author_resume.pdf' %}" target="blank"><h3 class="btn btn-warning">Joel's Resume</h3></a>          
-              
-    </div>
-    
-    <!--<div class="container">-->
-
-        <div class="container text-center"><h5 class="alert alert-success">Here is a list of my recently completed projects</h5></div>
-
-        <div class="row">
-       
-            {% for project in projects %}
-                <div class="col-md-4">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="{{project.image.url}}" alt="project's image" height="150" width="200">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ project.title|truncatechars:10 }}</h5>
-                            <p class="card-text">{{ project.description|truncatechars:20 }}</p>
-                            <a href="{% url 'portfolio:project_detail' project.id %}"
-                            class="btn btn-primary">
-                                Read More   
-                            </a>
-
-                            {% if project.url%}
-                                <a class="btn btn-primary btn-default" href="{{project.url}}" target="blank">Link</a>
-                            {% endif%}
+{% load static %}
 
 
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}                
-        </div>
-    </div>
-    
+<!--header-->
+<div class="header">
+		<div class="container">
+			 <div class="banner-info">
+				 <h2>Joel's Profile</h2>
+				 <p>
+					 Joel is an experienced software developer. He is the CEO of Wendy Nigeria Limited, 
+					 an ICT company with HQ in Ibadan and branches in 7 states of Nigeria.
+				 </p>
+				 <a href="{% static 'portfolio/author_resume.pdf' %}" target="blank">Resume</a>
+			 </div>
+			 <div class="clearfix"></div>
+		</div>
+</div>
+
+<!--gallery js-->
+<!--Beginning of the loop-->
+
+<div id="gallery" class="gallery">
+	 <div class="container">
+		 <h3 class="text-center">My Completed Projects</h3>
+		 <br><br>
+		 <div class="row">
+		 {% for project in projects%}		 
+			
+		 <div class="col-md-4">
+			<div class="card mb-2">
+				<img class="card-img-top" src="{{project.image.url}}" alt="project's image" height="250" width="250">
+				<div class="card-body">
+					<h5 class="card-title">{{ project.title|truncatechars:10 }}</h5>
+					<p class="card-text">{{ project.description|truncatechars:20 }}</p>
+					<a href="{% url 'portfolio:project_detail' project.id %}"
+					class="btn btn-primary">
+						Read More   
+					</a>
+
+					{% if project.url%}
+						<a class="btn btn-primary btn-default" href="{{project.url}}" target="blank">Link</a>
+					{% endif%}
+
+
+				</div>
+			</div>
+		</div>
+		
+		 {% endfor %}
+	    </div>
+	 </div> <!--Required-->
+</div>
+
+
+<div class="footer">
+	<div class="container">
+		<p>Copyrights © 2015 Emplox. All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+		<div class="social">							
+			   <a href="#"><i class="facebook"></i></a>
+			   <a href="#"><i class="twitter"></i></a>
+			   <a href="#"><i class="dribble"></i></a>	
+			   <a href="#"><i class="google"></i></a>	
+			   <a href="#"><i class="youtube"></i></a>	
+		</div>
+		<div class="arrow">
+			<a class="scroll" href="#home"><img src="images/top.png" alt=""></a>
+		</div>
+	</div>
+</div>
+<!---->
+<script type="text/javascript">
+	   $(document).ready(function() {
+			   /*
+			   var defaults = {
+			   containerID: 'toTop', // fading element id
+			   containerHoverID: 'toTopHover', // fading element hover id
+			   scrollSpeed: 1200,
+			   easingType: 'linear' 
+			   };
+			   */
+	   $().UItoTop({ easingType: 'easeOutQuart' });
+});
+</script>
+<a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!----> 
+
+
+
 {% endblock content %}
-    
