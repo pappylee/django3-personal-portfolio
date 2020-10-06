@@ -1,94 +1,147 @@
-
-{% extends "portfolio/base.html" %}
-
-{% block content %}
-
-{% load static %}
-
+{% extends "portfolio/base.html" %} {% block content %} {% load static %}
 
 <!--header-->
+<!--
 <div class="header">
-		<div class="container">
-			 <div class="banner-info">
-				 <h2>Joel's Profile</h2>
-				 <p>
-					 Joel is an experienced software developer. He is the CEO of Wendy Nigeria Limited, 
-					 an ICT company with HQ in Ibadan and branches in 7 states of Nigeria.
-				 </p>
-				 <a href="{% static 'portfolio/author_resume.pdf' %}" target="blank">Resume</a>
-			 </div>
-			 <div class="clearfix"></div>
-		</div>
+  <div class="container">
+    <div class="banner-info">
+      <h2>Joel's Profile</h2>
+      <p>
+        Joel is an experienced software developer. He is the CEO of Wendy
+        Nigeria Limited, an ICT company with HQ in Ibadan and branches in 7
+        states of Nigeria.
+      </p>
+      <a href="{% static 'portfolio/author_resume.pdf' %}" target="blank"
+        >Resume</a
+      >
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+-->
+
+<div class="card">
+  <img
+    src="{% static 'portfolio/images/photo.jpg' %}"
+    alt=""
+    class="card-img-top img-fluid pt-5"
+  />
+
+  <div class="card-body text-center">
+    <h4 class="card-title">Joel's Profile</h4>
+    <p class="card-text">
+      Joel is an experienced software developer. He is the CEO of Wendy Nigeria
+      Limited, an ICT company with HQ in Ibadan and branches in 7 states of
+      Nigeria.
+    </p>
+    <a
+      href="{% static 'portfolio/author_resume.pdf' %}"
+      class="btn btn-success"
+      target="blank"
+      >Find Out More About The Author</a
+    >
+  </div>
 </div>
 
 <!--gallery js-->
 <!--Beginning of the loop-->
 
 <div id="gallery" class="gallery">
-	 <div class="container">
-		 <h3 class="text-center">My Completed Projects</h3>
-		 <br><br>
-		 <div class="row">
-		 {% for project in projects%}		 
-			
-		 <div class="col-md-4">
-			<div class="card mb-2">
-				<img class="card-img-top" src="{{project.image.url}}" alt="project's image" height="250" width="250">
-				<div class="card-body">
-					<h5 class="card-title">{{ project.title|truncatechars:10 }}</h5>
-					<p class="card-text">{{ project.description|truncatechars:20 }}</p>
-					<a href="{% url 'portfolio:project_detail' project.id %}"
-					class="btn btn-primary">
-						Read More   
-					</a>
+  <div class="container">
+    <h3 class="text-center">My Completed Projects</h3>
+    <br /><br />
+    <div class="row">
+      {% for project in projects%}
 
-					{% if project.url%}
-						<a class="btn btn-primary btn-default" href="{{project.url}}" target="blank">Link</a>
-					{% endif%}
+      <div class="col-md-4">
+        <div class="card mb-2">
+          <img
+            class="card-img-top"
+            src="{{project.image.url}}"
+            alt="project's image"
+            height="250"
+            width="250"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ project.title|truncatechars:10 }}</h5>
+            <p class="card-text">{{ project.description|truncatechars:20 }}</p>
+            <a
+              href="{% url 'portfolio:project_detail' project.id %}"
+              class="btn btn-primary"
+            >
+              Read More
+            </a>
 
+            {% if project.url%}
+            <a
+              class="btn btn-primary btn-default"
+              href="{{project.url}}"
+              target="blank"
+              >Link</a
+            >
+            {% endif%}
+          </div>
+        </div>
+      </div>
 
-				</div>
-			</div>
-		</div>
-		
-		 {% endfor %}
-	    </div>
-	 </div> <!--Required-->
+      {% endfor %}
+    </div>
+  </div>
+  <!--Required-->
 </div>
-
-
+<!--
 <div class="footer">
-	<div class="container">
-		<p>Copyrights © 2015 Emplox. All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
-		<div class="social">							
-			   <a href="#"><i class="facebook"></i></a>
-			   <a href="#"><i class="twitter"></i></a>
-			   <a href="#"><i class="dribble"></i></a>	
-			   <a href="#"><i class="google"></i></a>	
-			   <a href="#"><i class="youtube"></i></a>	
-		</div>
-		<div class="arrow">
-			<a class="scroll" href="#home"><img src="images/top.png" alt=""></a>
-		</div>
-	</div>
+  <div class="container">
+    <p>
+      Copyrights © 2015 Emplox. All rights reserved | Template by
+      <a href="http://w3layouts.com/">W3layouts</a>
+    </p>
+    <div class="social">
+      <a href="#"><i class="facebook"></i></a>
+      <a href="#"><i class="twitter"></i></a>
+      <a href="#"><i class="dribble"></i></a>
+      <a href="#"><i class="google"></i></a>
+      <a href="#"><i class="youtube"></i></a>
+    </div>
+    <div class="arrow">
+      <a class="scroll" href="#home"><img src="images/top.png" alt="" /></a>
+    </div>
+  </div>
 </div>
+
+
+
+<footer id="main-footer" class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center py-4">
+        <h3>Wendy</h3>
+        <p>Copyright &copy; <span id="year"></span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+-->
+
 <!---->
 <script type="text/javascript">
-	   $(document).ready(function() {
-			   /*
+  /*
+  $(document).ready(function () {
+    
 			   var defaults = {
 			   containerID: 'toTop', // fading element id
 			   containerHoverID: 'toTopHover', // fading element hover id
 			   scrollSpeed: 1200,
 			   easingType: 'linear' 
 			   };
-			   */
-	   $().UItoTop({ easingType: 'easeOutQuart' });
-});
+			   
+    $().UItoTop({ easingType: 'easeOutQuart' });
+  });
+  
+
+  $('#year').text(new Date().getFullYear());
+  */
 </script>
-<a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<!----> 
-
-
 
 {% endblock content %}

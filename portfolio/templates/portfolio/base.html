@@ -1,131 +1,168 @@
-<!--
-Au
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
+    {% load static %}
 
-  {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
 
-<!--<title>Emplox a Personal Portfolio Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Pangolin&family=Playfair+Display:wght@600&family=Roboto+Slab:wght@500&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
 
- <!-- <<li>nk href="{% static 'portfolio/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"> -->
+    <link
+      href="{% static 'portfolio/css/style.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      href="{% static 'portfolio/css/custom.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      href="{% static 'blog/css/mystyle.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'portfolio/css/chocolat.css' %}"
+      type="text/css"
+      media="screen"
+    />
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="Emplox Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <script src="{% static 'portfolio/js/jquery-1.11.1.min.js' %}"></script>
+    <link
+      rel="stylesheet"
+      href="{% static 'portfolio/css/flexslider.css' %}"
+      type="text/css"
+      media="screen"
+    />
+    <!--scrolling-->
+    <script
+      type="text/javascript"
+      src="{% static 'portfolio/js/move-top.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'portfolio/js/easing.js' %}"
+    ></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+        $('.scroll').click(function (event) {
+          event.preventDefault();
+          $('html,body').animate(
+            { scrollTop: $(this.hash).offset().top },
+            1200
+          );
+        });
+      });
+    </script>
+    <!--scrolling-->
 
-<link href="https://fonts.googleapis.com/css2?family=Alata&family=Pangolin&family=Playfair+Display:wght@600&family=Roboto+Slab:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+    {% block extra_head %} {% endblock extra_head %}
+  </head>
+  <body class="bgimg loader">
+    <div id="page-container">
+      <div id="content-wrap">
+        <!--Navbar here-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
+          <a class="navbar-brand" href="{% url 'portfolio:home' %}">Home</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-<link href="{% static 'portfolio/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="{% static 'portfolio/css/custom.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="{% static 'blog/css/mystyle.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="{% static 'portfolio/css/chocolat.css' %}" type="text/css" media="screen" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Emplox Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script src="{% static 'portfolio/js/jquery-1.11.1.min.js' %}"></script>
-<link rel="stylesheet" href="{% static 'portfolio/css/flexslider.css' %}" type="text/css" media="screen" />
-<!--scrolling-->
-<script type="text/javascript" src="{% static 'portfolio/js/move-top.js' %}"></script>
-<script type="text/javascript" src="{% static 'portfolio/js/easing.js' %}"></script>
-<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
-	</script>
-<!--scrolling-->
-
-{% block extra_head %} {% endblock extra_head %}
-
-</head>
-<body class="bgimg loader">
-	
-	
-<!--top-header
-<div id="home" class="top-header loader">
-	 <div class="container">
-		 <div class="logo">
-		 <h1><a href="index.html">Emplox</a></h1>
-		 </div>
-		 <div class="top-menu">
-			 <span class="menu"><img src="{% static 'portfolio/images/nav-icon.png' %}" alt=""/></span>
-			 <ul>
-				<li><a class="scroll" href="#home">Home</a></li>
-				<li><a class="scroll" href="#about">About</a></li>
-				<li><a class="scroll" href="#service">Service</a></li>
-				<li><a class="scroll" href="#gallery">Gallery</a></li>
-				<li><a class="scroll" href="#blog">Blog</a></li>
-				<li><a class="scroll" href="#contact">Contact</a></li>
-			 </ul>
-		     script-for-menu 
-				 <script>					
-							$("span.menu").click(function(){
-								$(".top-menu ul").slideToggle("slow" , function(){
-								});
-							});
-				 </script>
-		     script-for-menu 
-		</div>
-	 </div>
-</div> -->
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
-    <a class="navbar-brand" href="{% url 'portfolio:home' %}">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'portfolio:about' %}">About<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:all_blogs' %}">Blogs</a>
-        </li>        
-      </ul> 
-      <ul class="navbar-nav mr-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'portfolio:wendy-home' %}">Wendy Nig Ltd</a>
-        </li>  
-      </ul>     
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'portfolio:about' %}"
+                  >About<span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:all_blogs' %}">Blogs</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mr-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'portfolio:wendy-home' %}"
+                  >Wendy Nig Ltd</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!--Other page contents here-->
+        {% block content %} {% endblock content %}
+      </div>
+      <!--Footer here-->
+      <footer id="footer" class="bg-dark footer">
+        <div class="container">
+          <div class="row">
+            <div class="col text-center py-4">
+              <h3>Joel</h3>
+              <p>Copyright &copy; <span id="year"></span></p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </nav>
 
+    <script src="{% static 'portfolio/js/jquery.chocolat.js' %}"></script>
+    <!--light-box-files -->
+    <script type="text/javascript">
+      $(function () {
+        $('.moments-bottom a').Chocolat();
+      });
+    </script>
 
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
 
-<!--Service removed-->
-
-<!--gallery -->
-		<script src="{% static 'portfolio/js/jquery.chocolat.js' %}"></script>		
-		<!--light-box-files -->
-		<script type="text/javascript">
-		$(function() {
-			$('.moments-bottom a').Chocolat();
-		});
-		</script> 
-
-		
-
-{% block content %} {% endblock content %}
-
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-</body>
-</html>		
-	
+    <script>
+      $('#year').text(new Date().getFullYear());
+    </script>
+  </body>
+</html>
